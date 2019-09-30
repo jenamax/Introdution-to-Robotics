@@ -1,22 +1,33 @@
- # Assignment 1
+#  Assignment 1
 
- ### Robot description:
+### Robot description:
  - Contains 5 links and 4 joints
  - Two prismatic joints
  - One continuous joint
  - One fixed joint
 
-<p align="center"> ![](1.png) </p>
+![](1.png)
 <p align="center"> Robot view in initial position </p>
 
-<p align="center"> ![](2.png) </p>
+![](2.png)
 <p align="center"> First prismatic joint move </p>
 
-<p align="center"> ![](3.png) </p>
+![](3.png)
 <p align="center"> Second prismatic joint move </p>
 
-<p align="center"> ![](4.png) </p>
+![](4.png)
 <p align="center"> Continuous joint move </p>
 
-<p align="center"> ![](frames.png) </p>
+![](frames.png)
 <p align="center"> URDF tree </p>
+
+
+### Github link:
+https://github.com/jenamax/Introdution-to-Robotics/tree/master/Assignment1
+
+### Run the visualization and control
+- build package A1
+- run roslaunch A1 display.launch
+- it will start visualization in rviz
+- the robot can be controlled through console where launch file was started
+- input the desired joints positions and the robot will move
