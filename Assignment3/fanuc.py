@@ -18,7 +18,7 @@ def direct():
     return T
 
 def jac_num():
-    Tb = np.concatenate([idle, transpose(np.matrix([x0, y0, z0, 1]))], axis=1)
+    Tb = np.concatenate([idle, transpose(np.matrix([0, 0, 0, 1]))], axis=1)
 
     H1 = np.matrix(np.zeros((4, 4)))
     H1[1, 0] = 1
@@ -48,12 +48,12 @@ def jac_num():
     H6[0, 2] = 1
     H6[2, 0] = -1
 
-    T1 = Tb * H1 * t1 * t2 * r2 * t3 * r3 * t4 * r4 * t5 * r5 * r6 * t6
-    T2 = Tb * r1 * t1 * t2 * H2 * t3 * r3 * t4 * r4 * t5 * r5 * r6 * t6
-    T3 = Tb * r1 * t1 * t2 * r2 * t3 * H3 * t4 * r4 * t5 * r5 * r6 * t6
-    T4 = Tb * r1 * t1 * t2 * r2 * t3 * r3 * t4 * H4 * t5 * r5 * r6 * t6
-    T5 = Tb * r1 * t1 * t2 * r2 * t3 * r3 * t4 * r4 * t5 * H5 * r6 * t6
-    T6 = Tb * r1 * t1 * t2 * r2 * t3 * r3 * t4 * r4 * t5 * r5 * H6 * t6
+    T1 = Tb * r1 * H1 * t1 * t2 * r2 * t3 * r3 * t4 * r4 * t5 * r5 * r6 * t6
+    T2 = Tb * r1 * t1 * t2 * r2 * H2 * t3 * r3 * t4 * r4 * t5 * r5 * r6 * t6
+    T3 = Tb * r1 * t1 * t2 * r2 * t3 * r3 * H3 * t4 * r4 * t5 * r5 * r6 * t6
+    T4 = Tb * r1 * t1 * t2 * r2 * t3 * r3 * t4 * t5 * r4 * H4 * r5 * r6 * t6
+    T5 = Tb * r1 * t1 * t2 * r2 * t3 * r3 * t4 * r4 * t5 * r5 * H5 * r6 * t6
+    T6 = Tb * r1 * t1 * t2 * r2 * t3 * r3 * t4 * r4 * t5 * r5 * r6 * H6 * t6
 
     T = [T1, T2, T3, T4, T5, T6]
     J = Matrix(np.zeros((6, 6)))
@@ -69,11 +69,11 @@ def jac_num():
 
 def jac_skew():
     T0 = np.matrix(np.eye(4))
-    T1 = t1 * r1
-    T2 = t1 * r1 * t2 * r2
-    T3 = t1 * r1 * t2 * r2 * t3 * r3
-    T4 = t1 * r1 * t2 * r2 * t3 * r3 * t4 * r4
-    T5 = t1 * r1 * t2 * r2 * t3 * r3 * t4 * r4 * t5 * r5
+    T1 = t1 * r1 * t2
+    T2 = t1 * r1 * t2 * r2 * t3
+    T3 = t1 * r1 * t2 * r2 * t3 * r3 * t4 * t5
+    T4 = t1 * r1 * t2 * r2 * t3 * r3 * t4 * t5 * r4
+    T5 = t1 * r1 * t2 * r2 * t3 * r3 * t4 * t5 * r4 * r5
     T6 = t1 * r1 * t2 * r2 * t3 * r3 * t4 * r4 * t5 * r5 * t6 * r6
 
     Z0 = T0[0:3, 2]
