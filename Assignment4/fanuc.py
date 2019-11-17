@@ -246,14 +246,6 @@ if __name__ == '__main__':
     Lt = 100
     x0, y0, z0 = 0, 0, 1
 
-    # est_params = np.zeros(33)
-    # q1, q2, q3, q4, q5, q6 = 0.5, 1.2, 0.5, 1, 0.1, 1.5
-    # x0, y0, z0 = 1, 1, 1
-    # T = T_robot_est()
-    # r = (T * transpose(np.matrix([x0, y0, z0, 1])))[0:3]
-    # print(r)
-    # exit()
-
     angle_lims = [(-pi / 2, pi / 2), (-pi / 2, pi / 2), (-pi / 2, pi / 2), (-pi / 2, pi / 2), (-pi, pi), (-pi, pi)]
 
     q1_err = ang_err()

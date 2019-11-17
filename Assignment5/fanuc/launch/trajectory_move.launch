@@ -1,0 +1,6 @@
+<launch>
+    <node name="trajectory_planning" pkg="fanuc" type="trajectory_planning.py" output="screen"/>
+    <node name="plot_gen" pkg="fanuc" type="plot_gen.py" output="screen"/>
+    <node name="rqt_plot" pkg="rqt_plot" type="rqt_plot" args="joint_vel_1 joint_vel_2 joint_vel_3 joint_vel_4 joint_vel_5 joint_vel_6"/>
+  <include file="$(find fanuc)/launch/display.launch"> </include> 
+</launch> 

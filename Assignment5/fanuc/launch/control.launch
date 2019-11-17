@@ -1,0 +1,7 @@
+<launch>
+
+  <include file="$(find fanuc)/launch/display.launch"> </include> 
+
+  <node name="joint_state_publisher" pkg="fanuc" type="control_joints.py" output="screen"/>
+
+</launch>
